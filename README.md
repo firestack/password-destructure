@@ -27,3 +27,9 @@ And this is just to make it so you're not opening python and doing
 len("<your password here>")
 ```
 
+![ugly screenshot](_doc/ugly-sceenshot.png)
+it looks bad because I don't have time to make it look good
+
+Styling PR's Welcome
+
+No NPM
