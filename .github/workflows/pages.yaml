@@ -27,10 +27,15 @@ jobs:
       - name: Run `nix build`
         run: nix build .# --print-build-logs
 
+      - name: Help Uploader
+        run: |
+            mkdir ./out
+            cp -a ./result/ ./out/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./result
+          path: ./out
 
   deploy:
     runs-on: ubuntu-latest
