@@ -7,21 +7,17 @@
 	 flake-utils.lib.eachDefaultSystem (system:
 		let pkgs = nixpkgs.legacyPackages.${system}; in
 		{
-		  packages = rec {
-			 pages = pkgs.stdenv.mkDerivation {
-				pname = "password destructure app";
-				version = "0.0.1";
+			packages = rec {
+				pages = pkgs.callPackage ./package.nix {
+					src = self;
+					version = "0.0.1";
+				};
+				default = pages;
+			};
 
-				src = self;
-
-				installPhase = ''
-					mkdir $out
-					cp offline-password.app.html $out/
-					cp offline-password.app.html $out/index.html
-				'';
-			 };
-			 default = pages;
-		  };
+			checks = {
+				inherit (self.packages.${system}) pages;
+			};
 		}
 	 );
 }
