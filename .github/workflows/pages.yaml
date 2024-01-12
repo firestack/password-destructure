@@ -2,6 +2,7 @@ name: Deploy to Pages
 
 # Runs on pushes targeting things that look like the default branch
 on:
+  workflow_dispatch: # allows manual triggering
   push:
     branches: [main]
 
