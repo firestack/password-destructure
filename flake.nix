@@ -15,6 +15,9 @@
 				default = pages;
 			};
 
+			checks = {
+				inherit (self.packages.${system}) pages;
+			};
 		}
 	 );
 }
